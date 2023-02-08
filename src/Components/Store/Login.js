@@ -1,13 +1,16 @@
 import axios from "axios";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Login.css";
 
 const Login = ({ token, setToken }) => {
   const nameInputRef = useRef();
   const passInputRef = useRef();
   const [error, setError] = useState("");
-  nameInputRef.current.value = "";
-  passInputRef.current.value = "";
+
+  useEffect(() => {
+    nameInputRef.current.value = "";
+    passInputRef.current.value = "";
+  }, []);
 
   const loginHandler = (event) => {
     event.preventDefault();

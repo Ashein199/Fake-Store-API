@@ -8,8 +8,13 @@ const App = () => {
   const [token, setToken] = useState(localStorage.getItem("userToken") ?? null);
   return (
     <Fragment>
-      <Navbar setToken={setToken} />
-      {token ? <Products /> : <Login token={token} setToken={setToken} />}
+      {token ? (
+        <div>
+          <Navbar setToken={setToken} /> <Products />
+        </div>
+      ) : (
+        <Login token={token} setToken={setToken} />
+      )}
     </Fragment>
   );
 };
