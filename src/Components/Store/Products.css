@@ -4,14 +4,14 @@
   margin: 0;
 }
 
-.products-container {
+/* .products-container {
   width: 100%;
   min-height: 80vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   padding: 10px;
-}
+} */
 
 img {
   width: 200px;

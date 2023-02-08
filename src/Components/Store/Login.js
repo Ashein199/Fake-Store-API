@@ -14,6 +14,8 @@ const Login = ({ token, setToken }) => {
 
   const loginHandler = (event) => {
     event.preventDefault();
+    console.log("blah");
+    localStorage.setItem("isLogin", "1");
     const enteredName = nameInputRef.current.value;
     const enteredPass = passInputRef.current.value;
     console.log(enteredName, enteredPass);

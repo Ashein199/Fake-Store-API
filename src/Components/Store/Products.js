@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./Products.css";
+import { Col, Row } from "antd";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -15,9 +16,9 @@ const Products = () => {
       .catch((e) => console.log(e));
   }, []);
   return (
-    <div className="products-container">
+    <Row className="products-container">
       {products.map((product) => (
-        <div key={product.id} className="card">
+        <Col span={12} key={product.id} className="card">
           <div>
             <img src={product.image} alt="#" />
           </div>
@@ -26,9 +27,9 @@ const Products = () => {
             <h6>{`Price: ${product.price}`}</h6>
             <h6>{`Des: ${product.description}`}</h6>
           </div>
-        </div>
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 };
 export default Products;
