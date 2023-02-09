@@ -1,23 +1,25 @@
 import axios from "axios";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
+import { Button, Space, Form, Input } from "antd";
 import "./Login.css";
 
 const Login = ({ token, setToken }) => {
-  const nameInputRef = useRef();
-  const passInputRef = useRef();
+  // const nameInputRef = useRef();
+  // const passInputRef = useRef();
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    nameInputRef.current.value = "";
-    passInputRef.current.value = "";
-  }, []);
+  // useEffect(() => {
+  //   nameInputRef.current.value = "";
+  //   passInputRef.current.value = "";
+  // }, []);
 
-  const loginHandler = (event) => {
-    event.preventDefault();
+  const loginHandler = (values) => {
     console.log("blah");
     localStorage.setItem("isLogin", "1");
-    const enteredName = nameInputRef.current.value;
-    const enteredPass = passInputRef.current.value;
+    // const enteredName = nameInputRef.current.value;
+    // const enteredPass = passInputRef.current.value;
+    const enteredName = values.username;
+    const enteredPass = values.password;
     console.log(enteredName, enteredPass);
 
     axios({
@@ -40,14 +42,33 @@ const Login = ({ token, setToken }) => {
       });
   };
   return (
-    <div className="login">
-      <form onSubmit={loginHandler} className="login-items">
-        <input type="text" ref={nameInputRef} placeholder="Username" />
-        <input type="password" ref={passInputRef} placeholder="Password" />
+    <div className="container">
+      <Form
+        className="form"
+        wrapperCol={{ span: 16 }}
+        style={{ maxWidth: 600 }}
+        onFinish={loginHandler}
+      >
+        <Form.Item name="username">
+          <Input placeholder="Username" />
+        </Form.Item>
+        <Form.Item name="password">
+          <Input.Password placeholder="Password" />
+        </Form.Item>
         {error && <p>{error}</p>}
-
-        <button type="submit">Login</button>
-      </form>
+        <Form.Item>
+          <Space
+            direction="vertical"
+            style={{
+              width: "100%",
+            }}
+          >
+            <Button type="primary" htmlType="submit" block>
+              Login
+            </Button>
+          </Space>
+        </Form.Item>
+      </Form>
     </div>
   );
 };

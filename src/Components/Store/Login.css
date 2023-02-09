@@ -1,29 +1,9 @@
-.login {
-  width: 100%;
-  min-height: 80vh;
+.container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-}
-.login-items {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  padding-top: 100px;
 }
 
-input {
-  padding: 10px;
-  margin: 20px 0;
-  width: 250px;
-}
-button {
-  padding: 10px;
-  margin: 10px 0;
-  width: 250px;
-  background-color: rgb(203, 203, 241);
-}
-p {
-  color: red;
+.form {
+  width: 75%;
 }
